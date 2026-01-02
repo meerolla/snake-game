@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Memory Match — Mahatej Games</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="./style.css"/>
+</head>
+<body>
+  <header class="top">
+    <a class="btn" href="/">← Home</a>
+    <div class="title">
+      <h1>🧠 Memory Match</h1>
+      <p>Flip cards and match pairs</p>
+    </div>
+    <div class="spacer"></div>
+    <select id="size">
+      <option value="4">2×2 (Easy)</option>
+      <option value="16" selected>4×4 (Normal)</option>
+      <option value="36">6×6 (Hard)</option>
+    </select>
+    <button class="btn primary" id="newGame">New Game</button>
+  </header>
+
+  <main class="wrap">
+    <div class="stats">
+      <div>Moves: <span id="moves">0</span></div>
+      <div>Matched: <span id="matched">0</span></div>
+      <div>Time: <span id="time">0</span>s</div>
+    </div>
+
+    <div id="grid" class="grid" aria-label="Memory grid"></div>
+  </main>
+
+  <div id="win" class="overlay" aria-hidden="true">
+    <div class="card">
+      <h2>🎉 You won!</h2>
+      <p>Moves: <b id="winMoves">0</b> • Time: <b id="winTime">0</b>s</p>
+      <div class="row">
+        <button class="btn primary" id="playAgain">Play Again</button>
+        <a class="btn" href="/">Home</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="./memory.js"></script>
+</body>
+</html>

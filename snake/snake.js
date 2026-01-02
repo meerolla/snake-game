@@ -93,15 +93,25 @@ function setPaused(state) {
 }
 
 function sizeCanvas(reset = true) {
-  // Keep canvas pixel size a multiple of TILE to align the grid
+  const topbar = document.getElementById("topbar");
+  const topH = topbar ? topbar.getBoundingClientRect().height : 0;
+
+  // Use remaining height so last rows never hide behind topbar
   const w = Math.floor(window.innerWidth / TILE) * TILE;
-  const h = Math.floor(window.innerHeight / TILE) * TILE;
+  const hAvail = Math.max(200, window.innerHeight - topH);
+  const h = Math.floor(hAvail / TILE) * TILE;
 
   canvas.width = WIDTH = Math.max(TILE * 10, w);
   canvas.height = HEIGHT = Math.max(TILE * 8, h);
 
+  // Position canvas below topbar visually
+  canvas.style.position = "absolute";
+  canvas.style.left = "0";
+  canvas.style.top = `${topH}px`;
+
   if (reset) hardReset();
 }
+
 
 function randomCell(marginTiles = 0) {
   const cols = (WIDTH / TILE) | 0;

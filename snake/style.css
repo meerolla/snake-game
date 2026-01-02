@@ -108,3 +108,13 @@ button.active { background: var(--btn-active); }
   opacity: 0.75;
 }
 
+/* Mobile tweaks */
+@media (max-width: 560px) {
+  #topbar {
+    height: 64px;
+    padding: 8px 10px;
+    gap: 8px;
+  }
+  #speed-buttons button { min-width: 72px; padding: 8px 10px; }
+  #hud { font-size: 12px; white-space: normal; line-height: 1.2; }
+}

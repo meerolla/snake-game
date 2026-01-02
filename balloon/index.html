@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Balloon Pop — Mahatej Games</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="./style.css"/>
+</head>
+<body>
+  <header class="top">
+    <a class="btn" href="/">← Home</a>
+    <div class="title">
+      <h1>🎈 Balloon Pop</h1>
+      <p>Tap balloons before they float away</p>
+    </div>
+    <div class="spacer"></div>
+    <button class="btn" id="pause">⏸ Pause</button>
+    <button class="btn primary" id="restart">Restart</button>
+  </header>
+
+  <main class="wrap">
+    <div class="hud">
+      <div>Score: <b id="score">0</b></div>
+      <div>Missed: <b id="missed">0</b></div>
+      <div>Time: <b id="time">45</b>s</div>
+    </div>
+
+    <canvas id="c"></canvas>
+  </main>
+
+  <div id="over" class="overlay" aria-hidden="true">
+    <div class="card">
+      <h2>Game Over</h2>
+      <p>Score: <b id="finalScore">0</b> • Missed: <b id="finalMissed">0</b></p>
+      <div class="row">
+        <button class="btn primary" id="play">Play Again</button>
+        <a class="btn" href="/">Home</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="./balloon.js"></script>
+</body>
+</html>

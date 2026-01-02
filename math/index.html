@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Math Quiz — Mahatej Games</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="./style.css"/>
+</head>
+<body>
+  <header class="top">
+    <a class="btn" href="/">← Home</a>
+    <div class="title">
+      <h1>➕ Math Quiz</h1>
+      <p>Quick practice for kids</p>
+    </div>
+    <div class="spacer"></div>
+    <select id="mode">
+      <option value="add" selected>Addition</option>
+      <option value="sub">Subtraction</option>
+      <option value="mix">Mixed</option>
+    </select>
+    <select id="level">
+      <option value="1" selected>Easy</option>
+      <option value="2">Normal</option>
+      <option value="3">Hard</option>
+    </select>
+    <button class="btn primary" id="start">Start</button>
+  </header>
+
+  <main class="wrap">
+    <div class="panel">
+      <div class="row">
+        <div>Score: <b id="score">0</b></div>
+        <div>Streak: <b id="streak">0</b></div>
+        <div>Time: <b id="time">60</b>s</div>
+      </div>
+
+      <div class="qbox">
+        <div class="q" id="q">Press Start</div>
+        <div class="ansrow">
+          <input id="ans" inputmode="numeric" placeholder="Answer" />
+          <button class="btn primary" id="submit">Go</button>
+        </div>
+        <div id="msg" class="msg"></div>
+      </div>
+
+      <div class="help">
+        Tip: On mobile, use the number keyboard. You can also press Enter.
+      </div>
+    </div>
+  </main>
+
+  <script src="./math.js"></script>
+</body>
+</html>

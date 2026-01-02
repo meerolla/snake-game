@@ -1,0 +1,50 @@
+:root{
+  --bg:#0b0d12; --card:#141827cc; --text:#f2f5ff; --muted:#b9c0d4;
+  --border:rgba(255,255,255,0.12);
+  --accent:#7c5cff; --accent2:#2dd4bf;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#121525);color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
+.top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px 14px;border-bottom:1px solid var(--border);
+  position:sticky;top:0;background:rgba(10,12,20,0.75);backdrop-filter:blur(10px);}
+.title h1{margin:0;font-size:18px}
+.title p{margin:2px 0 0;color:var(--muted);font-size:12px}
+.spacer{flex:1}
+.btn{border:1px solid var(--border);background:rgba(20,24,40,0.55);color:var(--text);
+  border-radius:12px;padding:10px 12px;font-weight:800;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#061014;border-color:transparent}
+select{border:1px solid var(--border);background:rgba(20,24,40,0.55);color:var(--text);
+  border-radius:12px;padding:10px 10px;font-weight:700}
+
+.wrap{max-width:1000px;margin:0 auto;padding:14px}
+.stats{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:13px;margin-bottom:10px}
+.stats > div{border:1px solid var(--border);border-radius:999px;padding:6px 10px;background:rgba(255,255,255,0.04)}
+
+.grid{display:grid;gap:10px}
+.cardBtn{
+  aspect-ratio:1/1;
+  border-radius:18px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,0.06);
+  display:grid;place-items:center;
+  font-size:32px;
+  cursor:pointer;
+  user-select:none;
+  transition: transform .08s ease;
+}
+.cardBtn:active{transform:scale(0.98)}
+.cardBtn.flipped{background:rgba(255,255,255,0.12)}
+.cardBtn.matched{background:rgba(45,212,191,0.20);border-color:rgba(45,212,191,0.40)}
+
+.overlay{position:fixed;inset:0;display:none;place-items:center;background:rgba(0,0,0,0.55)}
+.overlay.show{display:grid}
+.overlay .card{
+  background:rgba(20,24,40,0.92);border:1px solid var(--border);border-radius:18px;
+  padding:16px;min-width:260px;text-align:center
+}
+.row{display:flex;gap:10px;justify-content:center;margin-top:10px;flex-wrap:wrap}
+
+@media (max-width:520px){
+  .cardBtn{font-size:28px;border-radius:16px}
+}
