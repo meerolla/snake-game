@@ -1,0 +1,110 @@
+:root {
+  --bg: #1e1e1e;
+  --hud-bg: rgba(0,0,0,0.35);
+  --hud-border: #333;
+  --text: #e6e6e6;
+  --accent: #dc3c3c;     /* food */
+  --border-red: #e00000; /* play border */
+  --grid: #333;
+  --btn: #505050;
+  --btn-hover: #666;
+  --btn-active: #808080;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Top bar overlays the canvas */
+#topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: var(--hud-bg);
+  backdrop-filter: blur(4px);
+  border-bottom: 1px solid var(--hud-border);
+  z-index: 10;
+}
+
+.spacer { flex: 1; }
+
+button {
+  background: var(--btn);
+  color: var(--text);
+  border: 1px solid #777;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+}
+button:hover { background: var(--btn-hover); }
+button.active { background: var(--btn-active); }
+
+#speed-buttons button { min-width: 90px; }
+
+#game {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+#hud {
+  font-size: 14px;
+  opacity: 0.9;
+  white-space: nowrap;
+}
+#hud .dot { padding: 0 8px; opacity: 0.8; }
+
+* { user-select: none; }
+
+/* Pause overlay */
+#pauseOverlay {
+  position: fixed;
+  inset: 0;
+  display: none;
+  place-items: center;
+  background: rgba(0,0,0,0.55);
+  z-index: 20;
+}
+#pauseOverlay.show { display: grid; }
+
+#pauseCard {
+  background: rgba(20,20,20,0.95);
+  border: 1px solid #444;
+  border-radius: 16px;
+  padding: 18px 18px 14px;
+  min-width: 260px;
+  text-align: center;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.45);
+}
+
+#pauseCard h2 {
+  margin: 0 0 12px;
+  font-size: 22px;
+}
+
+.pauseBtns {
+  display: grid;
+  gap: 10px;
+}
+
+.pauseBtns button {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 15px;
+}
+
+.hint {
+  margin-top: 10px;
+  font-size: 12px;
+  opacity: 0.75;
+}
+

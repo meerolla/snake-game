@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Snake — Mahatej Games</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="./style.css"/>
+</head>
+<body>
+  <div id="topbar">
+    <button id="pauseBtn" title="Space/P">⏸️ Pause</button>
+    <div class="spacer"></div>
+
+    <div id="speed-buttons" aria-label="Speed">
+      <button data-speed="0">Slow</button>
+      <button data-speed="1" class="active">Normal</button>
+      <button data-speed="2">Fast</button>
+      <button data-speed="3">Insane</button>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div id="hud">
+      Score: <span id="score">0</span>
+      <span class="dot">•</span>
+      Controls: Arrow/WASD, Space/P to pause, 1–4 set speed
+    </div>
+  </div>
+
+  <canvas id="game"></canvas>
+
+  <!-- Pause Menu Overlay -->
+  <div id="pauseOverlay" aria-hidden="true">
+    <div id="pauseCard">
+      <h2>Paused</h2>
+      <div class="pauseBtns">
+        <button id="continueBtn">▶️ Continue</button>
+        <button id="exitBtn">🔁 Exit</button>
+        <button id="menuBtn">🏠 Main Menu</button>
+      </div>
+      <div class="hint">Tip: press Space / P to continue</div>
+    </div>
+  </div>
+
+  <script src="./snake.js"></script>
+</body>
+</html>
