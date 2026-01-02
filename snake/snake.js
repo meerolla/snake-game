@@ -397,3 +397,40 @@ window.addEventListener('resize', () => sizeCanvas(true));
 sizeCanvas(true);
 requestAnimationFrame(loop);
 
+// --- Mobile swipe controls ---
+let touchStartX = 0, touchStartY = 0;
+const SWIPE_MIN = 18; // px threshold
+
+canvas.style.touchAction = 'none'; // prevent scrolling while swiping
+
+canvas.addEventListener('touchstart', (e) => {
+  const t = e.touches[0];
+  touchStartX = t.clientX;
+  touchStartY = t.clientY;
+}, { passive: true });
+
+canvas.addEventListener('touchmove', (e) => {
+  // prevent browser gestures/scroll
+  e.preventDefault();
+}, { passive: false });
+
+canvas.addEventListener('touchend', (e) => {
+  if (paused) return;
+  const t = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0] : null;
+  if (!t) return;
+
+  const dx = t.clientX - touchStartX;
+  const dy = t.clientY - touchStartY;
+
+  if (Math.abs(dx) < SWIPE_MIN && Math.abs(dy) < SWIPE_MIN) return;
+
+  if (Math.abs(dx) > Math.abs(dy)) {
+    // left/right
+    if (dx > 0) changeDir(TILE, 0);
+    else changeDir(-TILE, 0);
+  } else {
+    // up/down
+    if (dy > 0) changeDir(0, TILE);
+    else changeDir(0, -TILE);
+  }
+}, { passive: true });
